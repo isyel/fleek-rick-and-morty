@@ -1,0 +1,41 @@
+.Character {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 0.3em;
+	border-radius: 5px;
+	border: 1px solid lightgray;
+
+	&__image {
+		width: 100%;
+		height: max-content;
+		padding-bottom: 0.5em;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+
+	&__name {
+		font-size: medium;
+	}
+
+	&__status {
+		color: lightgray;
+		font-size: small;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 5px;
+		border: 1px solid lightgray;
+		text-decoration: none;
+		color: black;
+		padding: 0.5em 0;
+
+		&:hover {
+			background-color: black;
+			color: white;
+		}
+	}
+}

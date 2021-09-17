@@ -10,7 +10,7 @@ function App() {
 			<Router>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route path="/characters/:id" component={SingleCharacterPage} />
+					<Route path="/character/:id" component={SingleCharacterPage} />
 					<Route component={PageNotFound} />
 				</Switch>
 			</Router>
