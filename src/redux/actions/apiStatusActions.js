@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 
 export function beginApiCall() {
+	console.log("call begin API call");
 	return {
 		type: types.BEGIN_API_CALL,
 	};
