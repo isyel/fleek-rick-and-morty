@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 import * as charactersApi from "../../api/charactersApi";
 import { apiCallError, beginApiCall, endApiCall } from "./apiStatusActions";
+import { savePageData } from "./pagesActions";
 
 export function getAllCharactersSuccess(characters) {
 	return { type: types.GET_CHARACTERS, characters };
@@ -18,6 +19,7 @@ export function getAllCharacters(queryParameters) {
 			.then((response) => {
 				console.log("response: ", response);
 				dispatch(getAllCharactersSuccess(response.results));
+				dispatch(savePageData(response.info));
 				dispatch(endApiCall());
 			})
 			.catch((error) => {

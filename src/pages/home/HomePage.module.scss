@@ -6,4 +6,10 @@
 	&__sideBar {
 		padding: 2em 0;
 	}
+
+	&__pagination {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 }

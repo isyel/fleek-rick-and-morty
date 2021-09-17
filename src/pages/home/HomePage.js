@@ -1,28 +1,32 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import CharacterList from "../../components/character-list/CharacterList";
-import SideBar from "../../components/sidebar/SideBar";
 
+import CharacterList from "../../components/character-list/CharacterList";
+import Pagination from "../../components/pagination/Pagination";
+import SideBar from "../../components/sidebar/SideBar";
 import { getAllCharacters } from "../../redux/actions/charactersActions";
+import { changePageNumber } from "../../redux/actions/pagesActions";
 import styles from "./HomePage.module.scss";
 
 const Home = () => {
 	const characters = useSelector((state) => state.characters.characters);
-	const isLoading = useSelector((state) => state.characters.isLoading);
-	const loadingError = useSelector((state) => state.characters.loadingError);
+	const isLoading = useSelector((state) => state.loading.isLoading);
+	const loadingError = useSelector((state) => state.loading.loadingError);
+	const pageNumber = useSelector((state) => state.pages.pageNumber);
+	const pageData = useSelector((state) => state.pages.pageData);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getAllCharacters());
 	}, [dispatch]);
 
-	console.log("characters: ", characters);
-	console.log("isLoading: ", isLoading);
-
 	const handleGetCharactersWithFilters = (queryParameters) => {
 		dispatch(getAllCharacters(queryParameters));
+	};
+
+	const handlePageChange = (pageNumber) => {
+		dispatch(changePageNumber(pageNumber));
 	};
 
 	return (
@@ -33,7 +37,23 @@ const Home = () => {
 				/>
 			</div>
 			<div className={styles.HomePage__body}>
-				<CharacterList characters={characters} />
+				{isLoading ? (
+					<p>Loading...</p>
+				) : loadingError ? (
+					<p>Error Loading</p>
+				) : (
+					<>
+						<CharacterList characters={characters} />
+						<Pagination
+							className={styles.HomePage__pagination}
+							currentPage={pageNumber}
+							totalCount={pageData?.count}
+							pageSize={20}
+							onPageChange={handlePageChange}
+							totalPageCount={pageData?.pages}
+						/>
+					</>
+				)}
 			</div>
 		</div>
 	);
