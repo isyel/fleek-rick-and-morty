@@ -15,8 +15,9 @@ export function getAllCharacters(searchString, pageNumber) {
 		dispatch(beginApiCall());
 		return charactersApi
 			.getCharacters(searchString, pageNumber)
-			.then((characters) => {
-				dispatch(getAllCharactersSuccess(characters));
+			.then((response) => {
+				console.log("response: ", response);
+				dispatch(getAllCharactersSuccess(response.results));
 				dispatch(endApiCall());
 			})
 			.catch((error) => {

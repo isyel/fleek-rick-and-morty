@@ -1,11 +1,10 @@
-import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/authors/";
+import { handleResponse, handleError, generateQueryString } from "./apiUtils";
+const baseUrl = "https://rickandmortyapi.com/api/character/";
 
 export async function getCharacters(pageNumber, searchString, status, gender) {
+	generateQueryString(pageNumber, searchString, status, gender);
 	try {
-		const response = await fetch(
-			`${baseUrl}?page=${pageNumber}&name=${searchString}&status=${status}&gender=${gender}`
-		);
+		const response = await fetch(`${baseUrl}`);
 		return handleResponse(response);
 	} catch (error) {
 		return handleError(error);
