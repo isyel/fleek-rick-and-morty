@@ -16,7 +16,12 @@ export function handleError(error) {
 	throw error;
 }
 
-export function generateQueryString(...args) {
-	console.log("args: ", args);
-	const myUrlWithParams = new URL("https://www.example.dev/");
+export function generateQueryString(baseUrl, queryParameters) {
+	const myUrlWithParams = new URL(baseUrl);
+	queryParameters?.forEach((parameter) =>
+		myUrlWithParams.searchParams.append(parameter.name, parameter.value)
+	);
+
+	console.log("myUrlWithParams: ", myUrlWithParams);
+	return myUrlWithParams;
 }

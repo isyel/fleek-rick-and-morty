@@ -10,11 +10,11 @@ export function getSingleCharacterSuccess(character) {
 	return { type: types.GET_SINGLE_CHARACTER, character };
 }
 
-export function getAllCharacters(searchString, pageNumber) {
+export function getAllCharacters(queryParameters) {
 	return function (dispatch) {
 		dispatch(beginApiCall());
 		return charactersApi
-			.getCharacters(searchString, pageNumber)
+			.getCharacters(queryParameters)
 			.then((response) => {
 				console.log("response: ", response);
 				dispatch(getAllCharactersSuccess(response.results));
