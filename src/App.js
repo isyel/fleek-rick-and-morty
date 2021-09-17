@@ -1,6 +1,5 @@
-import { Route, Router, Switch } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import "./App.css";
 import Home from "./pages/home/HomePage";
 import SingleCharacterPage from "./pages/single-character/SingleCharacterPage";
 
