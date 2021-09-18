@@ -32,10 +32,12 @@ const Home = () => {
 	};
 
 	const handleAddQueryParameter = (queryParameter) => {
+		dispatch(changePageNumber(1));
 		dispatch(addQueryParameter(queryParameter));
 	};
 
 	const handleUpdateQueryParameters = (queryParameter) => {
+		dispatch(changePageNumber(1));
 		dispatch(updateQueryParameter(queryParameter));
 	};
 
@@ -43,8 +45,6 @@ const Home = () => {
 		dispatch(changePageNumber(pageNumber));
 		handleGetCharactersWithFilters();
 	};
-
-	console.log("loadingError: ", loadingError);
 
 	return (
 		<div className={styles.HomePage}>

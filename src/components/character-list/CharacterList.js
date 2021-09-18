@@ -8,7 +8,7 @@ const CharacterList = (props) => {
 	return (
 		<div className={styles.CharacterList}>
 			{characters.map((character) => (
-				<Character character={character} key={character.id} />
+				<Character character={character} key={Math.random()} />
 			))}
 		</div>
 	);

@@ -1,4 +1,5 @@
 .HomePage {
+	max-height: 100vh;
 	&__container {
 		display: grid;
 		grid-template-columns: 1fr 3fr;
@@ -13,5 +14,16 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
+	}
+
+	&__body {
+		height: 90vh;
+		overflow-y: auto;
+		scrollbar-width: none; /* Firefox */
+		border-bottom: 1.5px solid gray;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 }

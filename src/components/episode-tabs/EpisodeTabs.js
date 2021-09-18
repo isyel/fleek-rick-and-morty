@@ -16,7 +16,7 @@ const EpisodeTabs = (props) => {
 		<div className={styles.EpisodeTabs}>
 			{episodes.map((episode, index) => (
 				<div
-					key={index}
+					key={Math.random()}
 					className={classNames(
 						styles.EpisodeTabs__tab,
 						activeTab === index && styles.EpisodeTabs__tab__active

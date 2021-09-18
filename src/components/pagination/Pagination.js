@@ -57,18 +57,16 @@ const Pagination = (props) => {
 				/>
 			</li>
 			{paginationRange.map((pageNumber) => {
-				if (pageNumber === DOTS) {
-					return (
-						<li
-							className={classnames(
-								styles.Pagination__item,
-								styles.Pagination__item__dots
-							)}
-							key={pageNumber}>
-							&#8230;
-						</li>
-					);
-				}
+				pageNumber === DOTS && (
+					<li
+						className={classnames(
+							styles.Pagination__item,
+							styles.Pagination__item__dots
+						)}
+						key={Math.random()}>
+						&#8230;
+					</li>
+				);
 
 				return (
 					<li
@@ -76,7 +74,8 @@ const Pagination = (props) => {
 							styles.Pagination__item,
 							pageNumber === currentPage && styles.Pagination__item__selected
 						)}
-						onClick={() => onPageChange(pageNumber)}>
+						onClick={() => onPageChange(pageNumber)}
+						key={Math.random()}>
 						{pageNumber}
 					</li>
 				);
