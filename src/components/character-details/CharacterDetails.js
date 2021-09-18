@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Episodes from "../episodes/Episodes";
 
 import styles from "./CharacterDetails.module.scss";
 
-const CharacterDetails = ({ character }) => {
+const CharacterDetails = (props) => {
+	const { character, handleGetEpisodeData } = props;
 	const options = {
 		weekday: "long",
 		year: "numeric",
@@ -11,8 +13,15 @@ const CharacterDetails = ({ character }) => {
 		day: "numeric",
 	};
 	const createdDate = new Date(character?.created);
+	const episode = useSelector((state) => state.episode);
 
-	const handleFetchEpisode = () => {};
+	useEffect(() => {
+		handleGetEpisodeData(character?.episode[0]);
+	}, [character, handleGetEpisodeData]);
+
+	const handleFetchEpisode = (episodeLink) => {
+		handleGetEpisodeData(episodeLink);
+	};
 
 	return (
 		<div className={styles.CharacterDetails__container}>
@@ -53,6 +62,7 @@ const CharacterDetails = ({ character }) => {
 					{character.episode.length > 0 ? (
 						<Episodes
 							episodes={character.episode}
+							episode={episode}
 							handleFetchEpisode={handleFetchEpisode}
 						/>
 					) : (

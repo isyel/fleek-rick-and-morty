@@ -1,6 +1,7 @@
 const initialState = {
 	characters: [],
 	singleCharacter: null,
+	episode: null,
 	isLoading: false,
 	loadingError: false,
 	pageData: null,

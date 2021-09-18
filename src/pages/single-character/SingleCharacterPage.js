@@ -9,6 +9,7 @@ import {
 	getSingleCharacterSuccess,
 } from "../../redux/actions/charactersActions";
 import CharacterDetails from "../../components/character-details/CharacterDetails";
+import { getEpisodeData } from "../../redux/actions/episodes.Actions";
 
 const SingleCharacterPage = () => {
 	let { id } = useParams();
@@ -30,9 +31,16 @@ const SingleCharacterPage = () => {
 		}
 	}, [characters, dispatch, id]);
 
+	const handleGetEpisodeData = (episodeLink) => {
+		dispatch(getEpisodeData(episodeLink));
+	};
+
 	return (
 		<div className={styles.SingleCharacterPage}>
-			<CharacterDetails character={singleCharacter} />
+			<CharacterDetails
+				character={singleCharacter}
+				handleGetEpisodeData={handleGetEpisodeData}
+			/>
 		</div>
 	);
 };

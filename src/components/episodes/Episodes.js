@@ -1,7 +1,7 @@
 import React from "react";
 import EpisodeTabs from "../episode-tabs/EpisodeTabs";
 
-import styles from "./Episodes.modules.scss";
+import styles from "./Episodes.module.scss";
 
 const Episodes = ({ episodes, episode, handleFetchEpisode }) => {
 	return (
@@ -12,19 +12,19 @@ const Episodes = ({ episodes, episode, handleFetchEpisode }) => {
 			/>
 			<div className={styles.Episodes__details}>
 				<span className={styles.Episodes__details__item}>
-					<strong>Episode ID:</strong>
+					<strong>Episode ID: </strong>
 					{episode?.id}
 				</span>
 				<span className={styles.Episodes__details__item}>
-					<strong>Episode Name:</strong>
+					<strong>Episode Name: </strong>
 					{episode?.name}
 				</span>
 				<span className={styles.Episodes__details__item}>
-					<strong>Episode Air Date:</strong>
+					<strong>Episode Air Date: </strong>
 					{episode?.air_date}
 				</span>
 				<span className={styles.Episodes__details__item}>
-					<strong>Episode:</strong>
+					<strong>Episode: </strong>
 					{episode?.episode}
 				</span>
 			</div>

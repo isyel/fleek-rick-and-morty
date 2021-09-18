@@ -7,9 +7,9 @@ const EpisodeTabs = (props) => {
 	const { episodes, handleFetchEpisode } = props;
 	const [activeTab, setActiveTab] = useState(0);
 
-	const handleActiveTab = (episode, index) => {
+	const handleActiveTab = (episodeLink, index) => {
 		setActiveTab(index);
-		handleFetchEpisode(episode);
+		handleFetchEpisode(episodeLink);
 	};
 
 	return (
