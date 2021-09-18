@@ -63,7 +63,8 @@ const Pagination = (props) => {
 							className={classnames(
 								styles.Pagination__item,
 								styles.Pagination__item__dots
-							)}>
+							)}
+							key={pageNumber}>
 							&#8230;
 						</li>
 					);

@@ -1,0 +1,37 @@
+.Header {
+	position: relative;
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 10fr 1fr;
+		align-items: center;
+		height: 60px;
+		margin-bottom: 0.5em;
+		border-bottom: 1px solid gray;
+	}
+
+	&__logo {
+		height: 60px;
+		text-align: center;
+
+		img {
+			height: 60px;
+		}
+	}
+
+	&__toggle {
+		cursor: pointer;
+		padding-left: 1em;
+
+		&::before {
+			content: "\2630";
+		}
+	}
+
+	&__menuSidebar {
+		position: absolute;
+		height: 80vh;
+		width: 80vw;
+		max-width: 250px;
+		background-color: white;
+	}
+}

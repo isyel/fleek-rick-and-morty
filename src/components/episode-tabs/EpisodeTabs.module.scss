@@ -1,0 +1,31 @@
+.EpisodeTabs {
+	display: flex;
+	overflow-x: scroll;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	border-bottom: 1.5px solid gray;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&__tab {
+		border-radius: 5px 5px 1px;
+		padding: 0.5em 0.3em;
+		border-style: solid;
+		border-color: gray;
+		border-width: 1.5px 0px 0px 1.5px;
+		min-width: 100px;
+		text-align: center;
+		cursor: pointer;
+
+		&:last-child {
+			border-right: 1.5px solid gray;
+		}
+
+		&__active,
+		&:hover {
+			background-color: rgb(194, 194, 194);
+		}
+	}
+}

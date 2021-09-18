@@ -8,6 +8,7 @@ import {
 	getSingleCharacter,
 	getSingleCharacterSuccess,
 } from "../../redux/actions/charactersActions";
+import CharacterDetails from "../../components/character-details/CharacterDetails";
 
 const SingleCharacterPage = () => {
 	let { id } = useParams();
@@ -31,8 +32,7 @@ const SingleCharacterPage = () => {
 
 	return (
 		<div className={styles.SingleCharacterPage}>
-			This is single character page
-			{singleCharacter && <h1>{singleCharacter.name}</h1>}
+			<CharacterDetails character={singleCharacter} />
 		</div>
 	);
 };
