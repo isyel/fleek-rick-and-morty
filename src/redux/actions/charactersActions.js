@@ -1,7 +1,7 @@
 import * as types from "./actionTypes";
 import * as charactersApi from "../../api/charactersApi";
 import { apiCallError, beginApiCall, endApiCall } from "./apiStatusActions";
-import { savePageData } from "./pagesActions";
+import { savePageData, changePageNumber } from "./pagesActions";
 
 export function getAllCharactersSuccess(characters) {
 	return { type: types.GET_CHARACTERS, characters };
@@ -13,7 +13,7 @@ export function getSingleCharacterSuccess(character) {
 
 export function getAllCharacters() {
 	return function (dispatch, getState) {
-		console.log("getState: ", getState());
+		dispatch(changePageNumber(1));
 		dispatch(beginApiCall());
 		return charactersApi
 			.getCharacters(getState().pages.queryParameters)
@@ -26,7 +26,7 @@ export function getAllCharacters() {
 			.catch((error) => {
 				dispatch(endApiCall());
 				dispatch(apiCallError());
-				throw error;
+				console.log("Network Error: ", error);
 			});
 	};
 }

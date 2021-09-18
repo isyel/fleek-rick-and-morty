@@ -66,8 +66,8 @@ const Home = () => {
 				<div className={styles.HomePage__body}>
 					{isLoading ? (
 						<p>Loading...</p>
-					) : loadingError && !characters ? (
-						<p>Error Loading</p>
+					) : loadingError && (!characters || characters.length === 0) ? (
+						<p>No Data Available</p>
 					) : (
 						<>
 							<CharacterList characters={characters} />

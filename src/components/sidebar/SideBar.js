@@ -73,13 +73,13 @@ const SideBar = (props) => {
 	};
 
 	const handleCallApiWithQuery = () => {
-		if (searchString !== "" && searchString !== null) {
+		if (searchString !== null) {
 			handleUpdateQuery({ name: "name", value: searchString });
 		}
-		if (status !== "" && status !== null) {
+		if (status !== null) {
 			handleUpdateQuery({ name: "status", value: status });
 		}
-		if (gender !== "" && gender !== null) {
+		if (gender !== null) {
 			handleUpdateQuery({ name: "gender", value: gender });
 		}
 		handleGetCharactersWithFilters();
