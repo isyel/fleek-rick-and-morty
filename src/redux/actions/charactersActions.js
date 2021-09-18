@@ -11,11 +11,12 @@ export function getSingleCharacterSuccess(character) {
 	return { type: types.GET_SINGLE_CHARACTER, character };
 }
 
-export function getAllCharacters(queryParameters) {
-	return function (dispatch) {
+export function getAllCharacters() {
+	return function (dispatch, getState) {
+		console.log("getState: ", getState());
 		dispatch(beginApiCall());
 		return charactersApi
-			.getCharacters(queryParameters)
+			.getCharacters(getState().pages.queryParameters)
 			.then((response) => {
 				console.log("response: ", response);
 				dispatch(getAllCharactersSuccess(response.results));

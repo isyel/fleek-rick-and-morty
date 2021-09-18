@@ -13,3 +13,10 @@ export function savePageData(pageData) {
 		pageData,
 	};
 }
+
+export function saveQueryParameter(queryParameters) {
+	return {
+		type: types.SAVE_QUERY_PARAMETERS,
+		queryParameters,
+	};
+}

@@ -21,12 +21,13 @@ const Home = () => {
 		dispatch(getAllCharacters());
 	}, [dispatch]);
 
-	const handleGetCharactersWithFilters = (queryParameters) => {
-		dispatch(getAllCharacters(queryParameters));
+	const handleGetCharactersWithFilters = () => {
+		dispatch(getAllCharacters());
 	};
 
 	const handlePageChange = (pageNumber) => {
 		dispatch(changePageNumber(pageNumber));
+		handleGetCharactersWithFilters();
 	};
 
 	return (
@@ -34,6 +35,7 @@ const Home = () => {
 			<div className={styles.HomePage__sideBar}>
 				<SideBar
 					handleGetCharactersWithFilters={handleGetCharactersWithFilters}
+					pageNumber={pageNumber}
 				/>
 			</div>
 			<div className={styles.HomePage__body}>
