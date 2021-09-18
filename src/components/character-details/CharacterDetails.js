@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Episodes from "../episodes/Episodes";
+import { useHistory } from "react-router";
 
+import Episodes from "../episodes/Episodes";
 import styles from "./CharacterDetails.module.scss";
 
 const CharacterDetails = (props) => {
 	const { character, handleGetEpisodeData } = props;
+	const history = useHistory();
 	const options = {
 		weekday: "long",
 		year: "numeric",
@@ -27,6 +29,16 @@ const CharacterDetails = (props) => {
 		<div className={styles.CharacterDetails__container}>
 			{character && (
 				<>
+					<div className={styles.CharacterDetails__title}>
+						<span
+							className={styles.CharacterDetails__title__back}
+							onClick={history.goBack}>
+							Back
+						</span>
+						<span className={styles.CharacterDetails__title__name}>
+							{character.name}
+						</span>
+					</div>
 					<div className={styles.CharacterDetails}>
 						<img src={character.image} alt={character.name} />
 						<div className={styles.CharacterDetails__list}>

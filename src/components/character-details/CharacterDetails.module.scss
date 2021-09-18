@@ -14,4 +14,30 @@
 		align-items: flex-start;
 		gap: 0.2em;
 	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+
+		&__back {
+			cursor: pointer;
+			&:hover {
+				color: #0697a9;
+			}
+
+			&::before {
+				padding-bottom: 1.5px;
+				content: "\279C";
+				font-size: medium;
+				display: inline-block;
+				transform: rotate(180deg);
+			}
+		}
+
+		&__name {
+			font-size: large;
+			padding: 0em 0.5em;
+			font-weight: bold;
+		}
+	}
 }

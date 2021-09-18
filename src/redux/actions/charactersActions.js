@@ -26,6 +26,7 @@ export function getAllCharacters() {
 			.catch((error) => {
 				dispatch(endApiCall());
 				dispatch(apiCallError());
+				dispatch(getAllCharactersSuccess([]));
 				console.log("Network Error: ", error);
 			});
 	};

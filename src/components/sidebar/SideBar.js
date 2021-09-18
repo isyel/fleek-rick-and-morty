@@ -99,7 +99,7 @@ const SideBar = (props) => {
 					className={styles.SideBar__status__select}
 					defaultValue={status}
 					onChange={handleSetStatus}>
-					<option value="">Select a status</option>
+					<option value="">No status</option>
 					{statusTypes.map((statusType) => (
 						<option key={statusType.value} value={statusType.value}>
 							{statusType.name}
@@ -112,7 +112,7 @@ const SideBar = (props) => {
 					className={styles.SideBar__gender__select}
 					defaultValue={gender}
 					onChange={handleSetGender}>
-					<option value="">Select a gender</option>
+					<option value="">No gender</option>
 					{genderTypes.map((genderType) => (
 						<option key={genderType.value} value={genderType.value}>
 							{genderType.name}
