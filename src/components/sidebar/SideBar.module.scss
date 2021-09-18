@@ -1,4 +1,66 @@
 .SideBar {
 	display: flex;
 	flex-direction: column;
+	border-right: 1px solid gray;
+	height: 82vh;
+	padding: 0 1em 3em 1em;
+	gap: 1em;
+
+	&__show {
+		visibility: visible;
+	}
+
+	&__hide {
+		visibility: hidden;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&__close {
+			position: absolute;
+			right: 5px;
+			top: 22px;
+			width: 32px;
+			height: 32px;
+			opacity: 0.3;
+			cursor: pointer;
+			&:hover {
+				opacity: 1;
+			}
+			&:before,
+			&:after {
+				position: absolute;
+				left: 15px;
+				content: " ";
+				height: 20px;
+				width: 2px;
+				background-color: #333;
+			}
+			&:before {
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	input {
+		width: 100%;
+		border-radius: 50px;
+		height: 140%;
+		outline: none;
+		padding-left: 7px;
+	}
+
+	select {
+		width: 100%;
+		border-radius: 8px;
+		height: 140%;
+		outline: none;
+		padding-left: 5px;
+	}
 }

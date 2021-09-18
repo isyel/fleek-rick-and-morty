@@ -32,6 +32,8 @@ const Header = (props) => {
 						queryParameters={queryParameters}
 						handleAddQueryParameter={handleAddQueryParameter}
 						handleUpdateQueryParameters={handleUpdateQueryParameters}
+						isMenu={true}
+						handleShowMenu={handleShowMenu}
 					/>
 				</div>
 			)}

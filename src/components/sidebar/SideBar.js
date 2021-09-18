@@ -1,15 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import useDebounce from "../../util/useDebounce";
+import classNames from "classnames";
 
+import useDebounce from "../../util/useDebounce";
 import styles from "./SideBar.module.scss";
 
 const SideBar = (props) => {
 	const {
+		isMenu,
 		handleGetCharactersWithFilters,
 		queryParameters,
 		handleAddQueryParameter,
 		handleUpdateQueryParameters,
+		handleShowMenu,
 	} = props;
 	const [searchString, setSearchString] = useState("");
 	const [status, setStatus] = useState("");
@@ -87,10 +90,22 @@ const SideBar = (props) => {
 
 	return (
 		<div className={styles.SideBar}>
+			<div className={styles.SideBar__header}>
+				<h4>Filter Characters</h4>
+				<span
+					className={classNames(
+						styles.SideBar__header__close,
+						isMenu ? styles.SideBar__show : styles.SideBar__hide
+					)}
+					onClick={handleShowMenu}></span>
+			</div>
+
 			<div className={styles.SideBar__search}>
 				<input
 					value={searchString}
 					className={styles.SideBar__search__input}
+					placeholder="Filter by name"
+					type="search"
 					onChange={handleSetSearchString}
 				/>
 			</div>
