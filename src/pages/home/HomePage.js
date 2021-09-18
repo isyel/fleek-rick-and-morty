@@ -44,6 +44,8 @@ const Home = () => {
 		handleGetCharactersWithFilters();
 	};
 
+	console.log("loadingError: ", loadingError);
+
 	return (
 		<div className={styles.HomePage}>
 			<Header
@@ -64,7 +66,7 @@ const Home = () => {
 				<div className={styles.HomePage__body}>
 					{isLoading ? (
 						<p>Loading...</p>
-					) : loadingError ? (
+					) : loadingError && !characters ? (
 						<p>Error Loading</p>
 					) : (
 						<>

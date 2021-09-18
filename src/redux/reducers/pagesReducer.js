@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-function pagesReducer(state = initialState, action) {
+function pagesReducer(state = initialState.pages, action) {
 	switch (action.type) {
 		case types.SAVE_PAGE_DATA:
 			return { ...state, pageData: action.pageData };

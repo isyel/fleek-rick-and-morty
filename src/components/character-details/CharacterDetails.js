@@ -16,7 +16,7 @@ const CharacterDetails = (props) => {
 	const episode = useSelector((state) => state.episode);
 
 	useEffect(() => {
-		handleGetEpisodeData(character?.episode[0]);
+		if (character) handleGetEpisodeData(character.episode[0]);
 	}, [character, handleGetEpisodeData]);
 
 	const handleFetchEpisode = (episodeLink) => {

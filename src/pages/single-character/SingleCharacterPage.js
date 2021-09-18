@@ -27,7 +27,7 @@ const SingleCharacterPage = () => {
 		if (singleCharacter) {
 			dispatch(getSingleCharacterSuccess(singleCharacter));
 		} else {
-			dispatch(getSingleCharacter(id));
+			dispatch(getSingleCharacter(+id));
 		}
 	}, [characters, dispatch, id]);
 

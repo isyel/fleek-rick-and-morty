@@ -11,6 +11,7 @@ export async function getCharacters(queryParameters) {
 }
 
 export async function getSingleCharacter(characterId) {
+	console.log("characterId: ", characterId);
 	try {
 		const response = await fetch(baseUrl + characterId);
 		return handleResponse(response);
