@@ -5,7 +5,13 @@ import useDebounce from "../../util/useDebounce";
 import styles from "./SideBar.module.scss";
 
 const SideBar = (props) => {
-	const { handleGetCharactersWithFilters } = props;
+	const {
+		handleGetCharactersWithFilters,
+		queryParameters,
+		handleSaveQueryParameters,
+		handleAddQueryParameter,
+		handleUpdateQueryParameters,
+	} = props;
 	const [searchString, setSearchString] = useState("");
 	const [status, setStatus] = useState("");
 	const [gender, setGender] = useState("");
@@ -56,16 +62,26 @@ const SideBar = (props) => {
 		gender,
 	]);
 
+	const handleUpdateQuery = (queryObject) => {
+		const query = queryParameters.find(
+			(queryParameter) => queryParameter.name === queryObject.name
+		);
+		if (query) {
+			handleUpdateQueryParameters(queryObject);
+		} else {
+			handleAddQueryParameter(queryObject);
+		}
+	};
+
 	const handleCallApiWithQuery = () => {
-		const queryParameters = [];
 		if (searchString !== "" && searchString !== null) {
-			queryParameters.push({ name: "name", value: searchString });
+			handleUpdateQuery({ name: "name", value: searchString });
 		}
 		if (status !== "" && status !== null) {
-			queryParameters.push({ name: "status", value: status });
+			handleUpdateQuery({ name: "status", value: status });
 		}
 		if (gender !== "" && gender !== null) {
-			queryParameters.push({ name: "gender", value: gender });
+			handleUpdateQuery({ name: "gender", value: gender });
 		}
 		handleGetCharactersWithFilters();
 	};

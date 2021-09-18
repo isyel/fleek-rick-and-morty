@@ -6,7 +6,12 @@ import CharacterList from "../../components/character-list/CharacterList";
 import Pagination from "../../components/pagination/Pagination";
 import SideBar from "../../components/sidebar/SideBar";
 import { getAllCharacters } from "../../redux/actions/charactersActions";
-import { changePageNumber } from "../../redux/actions/pagesActions";
+import {
+	addQueryParameter,
+	changePageNumber,
+	saveQueryParameters,
+	updateQueryParameter,
+} from "../../redux/actions/pagesActions";
 import styles from "./HomePage.module.scss";
 
 const Home = () => {
@@ -15,6 +20,7 @@ const Home = () => {
 	const loadingError = useSelector((state) => state.loading.loadingError);
 	const pageNumber = useSelector((state) => state.pages.pageNumber);
 	const pageData = useSelector((state) => state.pages.pageData);
+	const queryParameters = useSelector((state) => state.pages.queryParameters);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -23,6 +29,18 @@ const Home = () => {
 
 	const handleGetCharactersWithFilters = () => {
 		dispatch(getAllCharacters());
+	};
+
+	const handleSaveQueryParameters = (queryParameters) => {
+		dispatch(saveQueryParameters(queryParameters));
+	};
+
+	const handleAddQueryParameter = (queryParameter) => {
+		dispatch(addQueryParameter(queryParameter));
+	};
+
+	const handleUpdateQueryParameters = (queryParameter) => {
+		dispatch(updateQueryParameter(queryParameter));
 	};
 
 	const handlePageChange = (pageNumber) => {
@@ -35,7 +53,10 @@ const Home = () => {
 			<div className={styles.HomePage__sideBar}>
 				<SideBar
 					handleGetCharactersWithFilters={handleGetCharactersWithFilters}
-					pageNumber={pageNumber}
+					queryParameters={queryParameters}
+					handleSaveQueryParameters={handleSaveQueryParameters}
+					handleAddQueryParameter={handleAddQueryParameter}
+					handleUpdateQueryParameters={handleUpdateQueryParameters}
 				/>
 			</div>
 			<div className={styles.HomePage__body}>

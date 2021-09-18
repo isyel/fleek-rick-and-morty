@@ -15,8 +15,20 @@ function pagesReducer(state = initialState, action) {
 						: queryParameter
 				),
 			};
-		case types.SAVE_QUERY_PARAMETERS:
-			return { ...state, queryParameters: action.queryParameters };
+		case types.ADD_QUERY_PARAMETERS:
+			return {
+				...state,
+				queryParameters: [...state.queryParameters, action.queryParameter],
+			};
+		case types.UPDATE_QUERY_PARAMETERS:
+			return {
+				...state,
+				queryParameters: state.queryParameters.map((queryParameter) =>
+					queryParameter.name === action.queryParameter.name
+						? { ...queryParameter, value: action.queryParameter.value }
+						: queryParameter
+				),
+			};
 		default:
 			return state;
 	}

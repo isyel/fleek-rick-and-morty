@@ -14,9 +14,23 @@ export function savePageData(pageData) {
 	};
 }
 
-export function saveQueryParameter(queryParameters) {
+export function saveQueryParameters(queryParameters) {
 	return {
 		type: types.SAVE_QUERY_PARAMETERS,
 		queryParameters,
+	};
+}
+
+export function updateQueryParameter(queryParameter) {
+	return {
+		type: types.UPDATE_QUERY_PARAMETERS,
+		queryParameter,
+	};
+}
+
+export function addQueryParameter(queryParameter) {
+	return {
+		type: types.ADD_QUERY_PARAMETERS,
+		queryParameter,
 	};
 }
