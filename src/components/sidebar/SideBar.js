@@ -67,7 +67,7 @@ const SideBar = (props) => {
 		if (gender !== "" && gender !== null) {
 			queryParameters.push({ name: "gender", value: gender });
 		}
-		handleGetCharactersWithFilters(queryParameters);
+		handleGetCharactersWithFilters();
 	};
 
 	return (
