@@ -8,7 +8,6 @@ const SideBar = (props) => {
 	const {
 		handleGetCharactersWithFilters,
 		queryParameters,
-		handleSaveQueryParameters,
 		handleAddQueryParameter,
 		handleUpdateQueryParameters,
 	} = props;

@@ -26,7 +26,7 @@
 			cursor: pointer;
 		}
 
-		&.selected {
+		&__selected {
 			background-color: rgba(0, 0, 0, 0.08);
 		}
 
@@ -51,10 +51,10 @@
 			transform: rotate(45deg);
 		}
 
-		&.disabled {
+		&__disabled {
 			pointer-events: none;
 
-			.arrow::before {
+			&__arrow::before {
 				border-right: 0.12em solid rgba(0, 0, 0, 0.43);
 				border-top: 0.12em solid rgba(0, 0, 0, 0.43);
 			}

@@ -42,13 +42,16 @@ const Pagination = (props) => {
 				[className]: className,
 			})}>
 			<li
-				className={classnames(styles.Pagination__item, {
-					disabled: currentPage === 1,
-				})}
+				className={classnames(
+					styles.Pagination__item,
+					currentPage === 1 && styles.Pagination__item__disabled
+				)}
 				onClick={onPrevious}>
 				<div
 					className={classnames(
-						styles.Pagination__item__arrow,
+						currentPage === 1
+							? styles.Pagination__item__disabled__arrow
+							: styles.Pagination__item__arrow,
 						styles.Pagination__item__left
 					)}
 				/>
@@ -68,22 +71,26 @@ const Pagination = (props) => {
 
 				return (
 					<li
-						className={classnames(styles.Pagination__item, {
-							selected: pageNumber === currentPage,
-						})}
+						className={classnames(
+							styles.Pagination__item,
+							pageNumber === currentPage && styles.Pagination__item__selected
+						)}
 						onClick={() => onPageChange(pageNumber)}>
 						{pageNumber}
 					</li>
 				);
 			})}
 			<li
-				className={classnames(styles.Pagination__item, {
-					disabled: currentPage === lastPage,
-				})}
+				className={classnames(
+					styles.Pagination__item,
+					currentPage === lastPage && styles.Pagination__item__disabled
+				)}
 				onClick={onNext}>
 				<div
 					className={classnames(
-						styles.Pagination__item__arrow,
+						currentPage === lastPage
+							? styles.Pagination__item__disabled__arrow
+							: styles.Pagination__item__arrow,
 						styles.Pagination__item__right
 					)}
 				/>
