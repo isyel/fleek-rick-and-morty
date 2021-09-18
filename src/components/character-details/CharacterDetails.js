@@ -43,30 +43,34 @@ const CharacterDetails = (props) => {
 						<img src={character.image} alt={character.name} />
 						<div className={styles.CharacterDetails__list}>
 							<span className={styles.CharacterDetails__list__item}>
-								#{character.id}
+								<strong>ID:</strong> {character.id}
 							</span>
 							<span className={styles.CharacterDetails__list__item}>
-								{character.name}
+								<strong>Name: </strong> {character.name}
 							</span>
 							<span className={styles.CharacterDetails__list__item}>
-								{character.status}
+								<strong>Status: </strong> {character.status}
 							</span>
 							<span className={styles.CharacterDetails__list__item}>
-								{character.species}
+								<strong>Species: </strong> {character.species}
+							</span>
+							{character.type !== "" && (
+								<span className={styles.CharacterDetails__list__item}>
+									<strong>Type: </strong> {character.type}
+								</span>
+							)}
+							<span className={styles.CharacterDetails__list__item}>
+								<strong>Gender: </strong> {character.gender}
 							</span>
 							<span className={styles.CharacterDetails__list__item}>
-								{character.type}
-							</span>
-							<span className={styles.CharacterDetails__list__item}>
-								{character.gender}
-							</span>
-							<span className={styles.CharacterDetails__list__item}>
+								<strong>Origin: </strong>
 								<a href={character.origin.url} target="_blank" rel="noreferrer">
 									{character.origin.name}
 								</a>
 							</span>
 							<span className={styles.CharacterDetails__list__item}>
-								Created: {createdDate.toLocaleDateString("en-US", options)}
+								<strong>Created: </strong>{" "}
+								{createdDate.toLocaleDateString("en-US", options)}
 							</span>
 						</div>
 					</div>

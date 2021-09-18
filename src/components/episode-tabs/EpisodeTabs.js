@@ -12,6 +12,11 @@ const EpisodeTabs = (props) => {
 		handleFetchEpisode(episodeLink);
 	};
 
+	const getEpisodeNumber = (episodeUrl) => {
+		const stringArray = episodeUrl.split("/");
+		return stringArray[stringArray.length - 1];
+	};
+
 	return (
 		<div className={styles.EpisodeTabs}>
 			{episodes.map((episode, index) => (
@@ -22,7 +27,7 @@ const EpisodeTabs = (props) => {
 						activeTab === index && styles.EpisodeTabs__tab__active
 					)}
 					onClick={() => handleActiveTab(episode, index)}>
-					{`Episode ${index + 1}`}
+					{`Episode  ${getEpisodeNumber(episode)}`}
 				</div>
 			))}
 		</div>

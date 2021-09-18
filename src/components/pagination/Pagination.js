@@ -56,8 +56,8 @@ const Pagination = (props) => {
 					)}
 				/>
 			</li>
-			{paginationRange.map((pageNumber) => {
-				pageNumber === DOTS && (
+			{paginationRange.map((pageNumber) =>
+				pageNumber === DOTS ? (
 					<li
 						className={classnames(
 							styles.Pagination__item,
@@ -66,9 +66,7 @@ const Pagination = (props) => {
 						key={Math.random()}>
 						&#8230;
 					</li>
-				);
-
-				return (
+				) : (
 					<li
 						className={classnames(
 							styles.Pagination__item,
@@ -78,8 +76,8 @@ const Pagination = (props) => {
 						key={Math.random()}>
 						{pageNumber}
 					</li>
-				);
-			})}
+				)
+			)}
 			<li
 				className={classnames(
 					styles.Pagination__item,
