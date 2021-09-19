@@ -1,6 +1,20 @@
+@import "../../scss-variables";
+
 .CharacterList {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	padding: 1em;
 	gap: 1em;
+
+	@media (min-width: $desktop) {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	@media (max-width: $mobile-landscape) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media (max-width: $mobile-portrait-large) {
+		grid-template-columns: 1fr;
+	}
 }

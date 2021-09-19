@@ -19,7 +19,7 @@ const EpisodeTabs = (props) => {
 
 	return (
 		<div className={styles.EpisodeTabs}>
-			{episodes.map((episode, index) => (
+			{episodes.slice(0, 5).map((episode, index) => (
 				<div
 					key={Math.random()}
 					className={classNames(

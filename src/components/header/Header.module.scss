@@ -1,3 +1,5 @@
+@import "../../scss-variables";
+
 .Header {
 	position: relative;
 	&__container {
@@ -22,6 +24,10 @@
 		cursor: pointer;
 		padding-left: 1em;
 
+		@media (min-width: $huge-mobile-landscape) {
+			visibility: hidden;
+		}
+
 		&::before {
 			content: "\2630";
 		}
@@ -33,7 +39,7 @@
 
 	&__menuSidebar {
 		position: absolute;
-		height: 80vh;
+		height: 90vh;
 		width: 80vw;
 		max-width: 250px;
 		background-color: white;

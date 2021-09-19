@@ -44,7 +44,11 @@ const CharacterDetails = (props) => {
 						</span>
 					</div>
 					<div className={styles.CharacterDetails}>
-						<img src={character.image} alt={character.name} />
+						<img
+							className={styles.CharacterDetails__image}
+							src={character.image}
+							alt={character.name}
+						/>
 						<div className={styles.CharacterDetails__list}>
 							<span className={styles.CharacterDetails__list__item}>
 								<strong>ID:</strong> {character.id}

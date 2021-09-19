@@ -1,9 +1,33 @@
+@import "../../scss-variables";
+
 .HomePage {
 	max-height: 100vh;
 	&__container {
 		display: grid;
 		grid-template-columns: 1fr 3fr;
 		gap: 1em;
+
+		@media (min-width: $desktop) {
+			grid-template-columns: 1fr 4fr;
+		}
+
+		@media (max-width: $mobile-landscape) {
+			grid-template-columns: 2fr;
+		}
+
+		@media (max-width: $mobile-portrait-large) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__sideBar {
+		@media (max-width: $mobile-landscape) {
+			display: none;
+		}
+
+		@media (max-width: $mobile-portrait-large) {
+			display: none;
+		}
 	}
 
 	&__pagination {
@@ -26,8 +50,8 @@
 
 	&__scrollTop {
 		position: absolute;
-		bottom: 20px;
-		right: 30px;
+		bottom: 50px;
+		right: 20px;
 		background-color: #0697a9;
 		text-align: center;
 		padding: 0.5em;
