@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import useDebounce from "../../util/useDebounce";
 import styles from "./SideBar.module.scss";
@@ -137,6 +138,15 @@ const SideBar = (props) => {
 			</div>
 		</div>
 	);
+};
+
+SideBar.propTypes = {
+	isMenu: PropTypes.bool,
+	queryParameters: PropTypes.array.isRequired,
+	handleAddQueryParameter: PropTypes.func.isRequired,
+	handleUpdateQueryParameters: PropTypes.func.isRequired,
+	handleShowMenu: PropTypes.func,
+	handleGetCharactersWithFilters: PropTypes.func.isRequired,
 };
 
 export default SideBar;

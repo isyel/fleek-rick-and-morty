@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import PropTypes from "prop-types";
 
 import { ReactComponent as ArrowBack } from "./../../assets/arrow-back.svg";
 import Episodes from "../episodes/Episodes";
@@ -111,6 +112,11 @@ const CharacterDetails = (props) => {
 			)}
 		</div>
 	);
+};
+
+CharacterDetails.propTypes = {
+	character: PropTypes.object,
+	handleGetEpisodeData: PropTypes.func.isRequired,
 };
 
 export default CharacterDetails;

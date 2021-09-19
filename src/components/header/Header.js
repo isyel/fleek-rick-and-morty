@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import SideBar from "../sidebar/SideBar";
 import logo from "./../../assets/Rick_and_Morty_Logo.png";
@@ -46,6 +47,14 @@ const Header = (props) => {
 			)}
 		</div>
 	);
+};
+
+Header.propTypes = {
+	showToggle: PropTypes.bool.isRequired,
+	handleGetCharactersWithFilters: PropTypes.func,
+	queryParameters: PropTypes.array,
+	handleAddQueryParameter: PropTypes.func,
+	handleUpdateQueryParameters: PropTypes.func,
 };
 
 export default Header;

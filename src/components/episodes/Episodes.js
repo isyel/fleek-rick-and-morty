@@ -1,9 +1,11 @@
 import React from "react";
-import EpisodeTabs from "../episode-tabs/EpisodeTabs";
+import PropTypes from "prop-types";
 
+import EpisodeTabs from "../episode-tabs/EpisodeTabs";
 import styles from "./Episodes.module.scss";
 
-const Episodes = ({ episodes, episode, handleFetchEpisode }) => {
+const Episodes = (props) => {
+	const { episodes, episode, handleFetchEpisode } = props;
 	return (
 		<div className={styles.Episodes}>
 			<EpisodeTabs
@@ -34,6 +36,12 @@ const Episodes = ({ episodes, episode, handleFetchEpisode }) => {
 			)}
 		</div>
 	);
+};
+
+Episodes.propTypes = {
+	episodes: PropTypes.array.isRequired,
+	episode: PropTypes.object,
+	handleFetchEpisode: PropTypes.func.isRequired,
 };
 
 export default Episodes;

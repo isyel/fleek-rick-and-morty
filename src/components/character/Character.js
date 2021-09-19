@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import styles from "./Character.module.scss";
 
-const Character = ({ character }) => {
+const Character = (props) => {
+	const { character } = props;
 	return (
 		<div className={styles.Character}>
 			<img
@@ -25,6 +27,10 @@ const Character = ({ character }) => {
 			</Link>
 		</div>
 	);
+};
+
+Character.propTypes = {
+	character: PropTypes.object.isRequired,
 };
 
 export default Character;

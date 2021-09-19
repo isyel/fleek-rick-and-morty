@@ -1,6 +1,7 @@
 import React from "react";
-import Character from "../character/Character";
+import PropTypes from "prop-types";
 
+import Character from "../character/Character";
 import styles from "./CharacterList.module.scss";
 
 const CharacterList = (props) => {
@@ -12,6 +13,10 @@ const CharacterList = (props) => {
 			))}
 		</div>
 	);
+};
+
+CharacterList.propTypes = {
+	characters: PropTypes.array.isRequired,
 };
 
 export default CharacterList;
