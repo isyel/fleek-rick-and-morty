@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { ReactComponent as ArrowUp } from "./../../assets/arrow-up.svg";
 import CharacterList from "../../components/character-list/CharacterList";
 import Header from "../../components/header/Header";
 import Pagination from "../../components/pagination/Pagination";
@@ -22,6 +23,12 @@ const Home = () => {
 	const pageData = useSelector((state) => state.pages.pageData);
 	const queryParameters = useSelector((state) => state.pages.queryParameters);
 	const dispatch = useDispatch();
+	const scrollable = useRef();
+
+	const buttonHandler = () => {
+		const list = scrollable.current;
+		list.scrollTop = 0;
+	};
 
 	useEffect(() => {
 		dispatch(getAllCharacters());
@@ -53,6 +60,7 @@ const Home = () => {
 				queryParameters={queryParameters}
 				handleAddQueryParameter={handleAddQueryParameter}
 				handleUpdateQueryParameters={handleUpdateQueryParameters}
+				showToggle={true}
 			/>
 			<div className={styles.HomePage__container}>
 				<div className={styles.HomePage__sideBar}>
@@ -63,7 +71,7 @@ const Home = () => {
 						handleUpdateQueryParameters={handleUpdateQueryParameters}
 					/>
 				</div>
-				<div className={styles.HomePage__body}>
+				<div className={styles.HomePage__body} ref={scrollable}>
 					{isLoading ? (
 						<p>Loading...</p>
 					) : loadingError && (!characters || characters.length === 0) ? (
@@ -78,6 +86,10 @@ const Home = () => {
 								pageSize={20}
 								onPageChange={handlePageChange}
 								totalPageCount={pageData?.pages}
+							/>
+							<ArrowUp
+								className={styles.HomePage__scrollTop}
+								onClick={buttonHandler}
 							/>
 						</>
 					)}
