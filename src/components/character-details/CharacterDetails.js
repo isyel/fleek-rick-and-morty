@@ -28,6 +28,10 @@ const CharacterDetails = (props) => {
 		handleGetEpisodeData(episodeLink);
 	};
 
+	const handleGoBack = () => {
+		history.push("/");
+	};
+
 	return (
 		<div className={styles.CharacterDetails__container}>
 			{isLoading ? (
@@ -40,7 +44,7 @@ const CharacterDetails = (props) => {
 						<div className={styles.CharacterDetails__title}>
 							<div
 								className={styles.CharacterDetails__title__back}
-								onClick={history.goBack}>
+								onClick={handleGoBack}>
 								<ArrowBack
 									className={styles.CharacterDetails__title__back__icon}
 								/>
