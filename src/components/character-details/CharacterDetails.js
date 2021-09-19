@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
+import { ReactComponent as ArrowBack } from "./../../assets/arrow-back.svg";
 import Episodes from "../episodes/Episodes";
 import styles from "./CharacterDetails.module.scss";
 
@@ -30,11 +31,14 @@ const CharacterDetails = (props) => {
 			{character && (
 				<>
 					<div className={styles.CharacterDetails__title}>
-						<span
+						<div
 							className={styles.CharacterDetails__title__back}
 							onClick={history.goBack}>
-							Back
-						</span>
+							<ArrowBack
+								className={styles.CharacterDetails__title__back__icon}
+							/>
+							<span>Back</span>
+						</div>
 						<span className={styles.CharacterDetails__title__name}>
 							{character.name}
 						</span>

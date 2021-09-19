@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 
 import SideBar from "../sidebar/SideBar";
 import logo from "./../../assets/Rick_and_Morty_Logo.png";
@@ -6,6 +7,7 @@ import styles from "./Header.module.scss";
 
 const Header = (props) => {
 	const {
+		showToggle,
 		handleGetCharactersWithFilters,
 		queryParameters,
 		handleAddQueryParameter,
@@ -20,7 +22,12 @@ const Header = (props) => {
 	return (
 		<div className={styles.Header}>
 			<div className={styles.Header__container}>
-				<span className={styles.Header__toggle} onClick={handleShowMenu}></span>
+				<span
+					className={classNames(
+						styles.Header__toggle,
+						!showToggle && styles.Header__toggle__hide
+					)}
+					onClick={handleShowMenu}></span>
 				<div className={styles.Header__logo}>
 					<img src={logo} alt="Rick and Morty Logo" />
 				</div>

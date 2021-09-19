@@ -10,6 +10,7 @@ import {
 } from "../../redux/actions/charactersActions";
 import CharacterDetails from "../../components/character-details/CharacterDetails";
 import { getEpisodeData } from "../../redux/actions/episodes.Actions";
+import Header from "../../components/header/Header";
 
 const SingleCharacterPage = () => {
 	let { id } = useParams();
@@ -37,6 +38,7 @@ const SingleCharacterPage = () => {
 
 	return (
 		<div className={styles.SingleCharacterPage}>
+			<Header showToggle={false} />
 			<CharacterDetails
 				character={singleCharacter}
 				handleGetEpisodeData={handleGetEpisodeData}
