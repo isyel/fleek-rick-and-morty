@@ -58,7 +58,7 @@ const SideBar = (props) => {
 		setGender(e.target.value);
 	};
 
-	useDebounce(() => handleCallApiWithQuery(), 1000, [
+	useDebounce(() => handleCallApiWithQuery(), 600, [
 		searchString,
 		status,
 		gender,
