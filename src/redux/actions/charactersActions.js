@@ -17,7 +17,6 @@ export function getAllCharacters() {
 		return charactersApi
 			.getCharacters(getState().pages.queryParameters)
 			.then((response) => {
-				console.log("response: ", response);
 				dispatch(getAllCharactersSuccess(response.results));
 				dispatch(savePageData(response.info));
 				dispatch(endApiCall());
@@ -44,6 +43,7 @@ export function getSingleCharacter(characterId) {
 				dispatch(endApiCall());
 				dispatch(apiCallError());
 				getSingleCharacterSuccess(null);
+				console.log("Network Error: ", error);
 			});
 	};
 }

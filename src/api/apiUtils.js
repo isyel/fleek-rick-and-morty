@@ -21,7 +21,5 @@ export function generateQueryString(baseUrl, queryParameters) {
 	queryParameters?.forEach((parameter) =>
 		myUrlWithParams.searchParams.append(parameter.name, parameter.value)
 	);
-
-	console.log("myUrlWithParams: ", myUrlWithParams);
 	return myUrlWithParams;
 }
