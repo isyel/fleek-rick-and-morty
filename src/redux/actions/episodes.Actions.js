@@ -15,7 +15,7 @@ export function getEpisodeData(episodeLink) {
 			})
 			.catch((error) => {
 				dispatch(apiCallError());
-				throw error;
+				getEpisodeDetailsSuccess(null);
 			});
 	};
 }

@@ -43,7 +43,7 @@ export function getSingleCharacter(characterId) {
 			.catch((error) => {
 				dispatch(endApiCall());
 				dispatch(apiCallError());
-				throw error;
+				getSingleCharacterSuccess(null);
 			});
 	};
 }

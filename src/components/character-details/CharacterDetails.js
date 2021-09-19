@@ -28,7 +28,7 @@ const CharacterDetails = (props) => {
 
 	return (
 		<div className={styles.CharacterDetails__container}>
-			{character && (
+			{character ? (
 				<>
 					<div className={styles.CharacterDetails__title}>
 						<div
@@ -93,6 +93,8 @@ const CharacterDetails = (props) => {
 						<h3>No Episodes</h3>
 					)}
 				</>
+			) : (
+				<h4>Character Data Not Found</h4>
 			)}
 		</div>
 	);
