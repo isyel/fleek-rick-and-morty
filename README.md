@@ -11,6 +11,7 @@ Project Live Link: [Visit Site](https://fleek-rick-and-morty.vercel.app/)
 - Linked the redux action calls with the API fetch functions by use of thunk middleware
 - Managed query string generation using saved state for query parameters
 - Manage API loading, and error response using redux actions and state (show loading and error status on UI)
+- No external Icon Library used, to keep app simple (alternatively used, css content icons and SVG icons)
 
 ### **Home Page (Characters List)**
 
@@ -30,6 +31,9 @@ Project Live Link: [Visit Site](https://fleek-rick-and-morty.vercel.app/)
 I used REDUX to manage state data across the application, having store slices for characters, episode, pages/query parameters and api loading state
 
 Used Redux Thunk middleware to manage API endpoints loading, response and error
+
+**Characters List Page**
+Use browser disk cache for API requests and reponses (using the default header: cache-control: max-age=259200)
 
 ### **Pages**
 
